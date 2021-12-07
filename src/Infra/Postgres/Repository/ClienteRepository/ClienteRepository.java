@@ -3,6 +3,7 @@ package Infra.Postgres.Repository.ClienteRepository;
 import Domain.Entity.*;
 import Domain.Interfaces.Repository.IClienteRepository;
 import Infra.Postgres.Context.*;
+import javafx.beans.property.SimpleStringProperty;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,9 +33,9 @@ public class ClienteRepository implements IClienteRepository {
         try {
             rs = conexao.executeQuery(SQLQuery);
             while(rs.next()){
-                model.setNome(rs.getString("nomecompleto"));
-                model.setTelefone(rs.getString("telefone"));
-                model.setEmail(rs.getString("email"));
+                model.setNome(new SimpleStringProperty(rs.getString("nomecompleto")));
+                model.setTelefone(new SimpleStringProperty(rs.getString("telefone")));
+                model.setEmail(new SimpleStringProperty(rs.getString("email")));
             }
             return model;
         } catch (SQLException e) {
@@ -54,9 +55,9 @@ public class ClienteRepository implements IClienteRepository {
             rs = conexao.executeQuery(SQLQuery);
             while(rs.next()){
                 Cliente model = new Cliente();
-                model.setNome(rs.getString("nomecompleto"));
-                model.setTelefone(rs.getString("telefone"));
-                model.setEmail(rs.getString("email"));
+                model.setNome(new SimpleStringProperty(rs.getString("nomecompleto")));
+                model.setTelefone(new SimpleStringProperty(rs.getString("telefone")));
+                model.setEmail(new SimpleStringProperty(rs.getString("email")));
                 listClientes.add(model);
             }
             return listClientes;

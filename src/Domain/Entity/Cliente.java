@@ -1,40 +1,43 @@
 package Domain.Entity;
 
-public class Cliente {
-    private int id;
-    private String Nome;
-    private String Telefone;
-    private String Email;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 
-    public int getId() {
+public class Cliente {
+    private SimpleIntegerProperty id;
+    private SimpleStringProperty Nome;
+    private SimpleStringProperty Telefone;
+    private SimpleStringProperty Email;
+
+    public SimpleIntegerProperty getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(SimpleIntegerProperty id) {
         this.id = id;
     }
 
-    public String getNome() {
+    public SimpleStringProperty getNome() {
         return Nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(SimpleStringProperty nome) {
         Nome = nome;
     }
 
-    public String getTelefone() {
+    public SimpleStringProperty getTelefone() {
         return Telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(SimpleStringProperty telefone) {
         Telefone = telefone;
     }
 
-    public String getEmail() {
+    public SimpleStringProperty getEmail() {
         return Email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(SimpleStringProperty email) {
         Email = email;
     }
 }
